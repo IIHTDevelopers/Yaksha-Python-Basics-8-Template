@@ -70,29 +70,32 @@ class TestFunctional(unittest.TestCase):
             print(f"TestTotalRevenueForAllFlights = Failed ")
 
     def test_total_tickets_sold(self):
-        """
-        Test case for total_tickets_sold() function.
-        """
         try:
-            result = total_tickets_sold()
-            # Expected total: 7 + 4 + 11 = 22
-            expected_result = 22
-            if result == expected_result:
-                self.test_obj.yakshaAssert("TestTotalTicketsSold", True, "functional")
-                print("TestTotalTicketsSold = Passed")
-            else:
-                self.test_obj.yakshaAssert("TestTotalTicketsSold", False, "functional")
-                print("TestTotalTicketsSold = Failed")
+            movies = {
+                "Avengers: Endgame": {"total_seats": 10, "booked_seats": 7, "ticket_price": 250},
+                "Inception": {"total_seats": 8, "booked_seats": 4, "ticket_price": 200},
+                "The Dark Knight": {"total_seats": 12, "booked_seats": 11, "ticket_price": 300}
+            }
+            result = total_tickets_sold(movies)  
+            expected = 7 + 4 + 11  # = 22
+            self.assertEqual(result, expected)
+            self.test_obj.yakshaAssert("TestTotalTicketsSold", True, "functional")
+            print("TestTotalTicketsSold = Passed")
         except Exception as e:
             self.test_obj.yakshaAssert("TestTotalTicketsSold", False, "functional")
-            print(f"TestTotalTicketsSold = Failed ")
+            print(f"TestTotalTicketsSold = Failed: {e}")
 
     def test_highest_revenue_movie(self):
         """
         Test case for highest_revenue_movie() function.
         """
         try:
-            result = highest_revenue_movie()
+            movies = {
+                "Avengers: Endgame": {"total_seats": 10, "booked_seats": 7, "ticket_price": 250},
+                "Inception": {"total_seats": 8, "booked_seats": 4, "ticket_price": 200},
+                "The Dark Knight": {"total_seats": 12, "booked_seats": 11, "ticket_price": 300}
+            }
+            result = highest_revenue_movie(movies)
             # Expected: "The Dark Knight" with revenue 11 * 300 = 3300
             expected_movie = "The Dark Knight"
             expected_revenue = 3300

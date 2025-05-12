@@ -6,7 +6,7 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from test.TestUtils import TestUtils
 from FlightReservationSystem import list_all_flights, available_seats_for_flight, total_revenue_for_all_flights
-from MovieTicketBookingSystem import total_tickets_sold, highest_revenue_movie
+from MovieTicketBookingSystem import total_tickets_sold, highest_revenue_movie, load_movies
 from students import count_number_of_days_using_dates, find_most_absent_student
 
 
@@ -31,7 +31,7 @@ class TestFunctional(unittest.TestCase):
                 print("TestListAllFlights = Failed")
         except Exception as e:
             self.test_obj.yakshaAssert("TestListAllFlights", False, "functional")
-            print(f"TestListAllFlights = Failed ")
+            print(f"TestListAllFlights = Failed | Exception: {e}")
 
     def test_available_seats_for_flight(self):
         """
@@ -49,7 +49,7 @@ class TestFunctional(unittest.TestCase):
                 print("TestAvailableSeatsForFlight = Failed")
         except Exception as e:
             self.test_obj.yakshaAssert("TestAvailableSeatsForFlight", False, "functional")
-            print(f"TestAvailableSeatsForFlight = Failed ")
+            print(f"TestAvailableSeatsForFlight = Failed | Exception: {e}")
 
     def test_total_revenue_for_all_flights(self):
         """
@@ -67,7 +67,7 @@ class TestFunctional(unittest.TestCase):
                 print("TestTotalRevenueForAllFlights = Failed")
         except Exception as e:
             self.test_obj.yakshaAssert("TestTotalRevenueForAllFlights", False, "functional")
-            print(f"TestTotalRevenueForAllFlights = Failed ")
+            print(f"TestTotalRevenueForAllFlights = Failed | Exception: {e}")
 
     def test_total_tickets_sold(self):
         """
@@ -107,6 +107,7 @@ class TestFunctional(unittest.TestCase):
         except Exception as e:
             self.test_obj.yakshaAssert("TestHighestRevenueMovie", False, "functional")
             print(f"TestHighestRevenueMovie = Failed | Exception: {e}")
+
     def test_count_number_of_days_using_dates(self):
         """
         Test case for count_number_of_days_using_dates() function.
@@ -123,7 +124,7 @@ class TestFunctional(unittest.TestCase):
                 print("TestCountNumberOfDaysUsingDates = Failed")
         except Exception as e:
             self.test_obj.yakshaAssert("TestCountNumberOfDaysUsingDates", False, "functional")
-            print(f"TestCountNumberOfDaysUsingDates = Failed ")
+            print(f"TestCountNumberOfDaysUsingDates = Failed | Exception: {e}")
 
     def test_find_most_absent_student(self):
         """
@@ -142,7 +143,7 @@ class TestFunctional(unittest.TestCase):
                 print("TestFindMostAbsentStudent = Failed")
         except Exception as e:
             self.test_obj.yakshaAssert("TestFindMostAbsentStudent", False, "functional")
-            print(f"TestFindMostAbsentStudent = Failed ")
+            print(f"TestFindMostAbsentStudent = Failed | Exception: {e}")
 
 
 if __name__ == '__main__':

@@ -5,10 +5,9 @@ import os
 # Adjusting the path to import TestUtils and the required modules
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from test.TestUtils import TestUtils
-from FlightReservationSystem import list_all_flights, available_seats_for_flight, total_revenue_for_all_flights
-from MovieTicketBookingSystem import total_tickets_sold, highest_revenue_movie, load_movies
-from students import count_number_of_days_using_dates, find_most_absent_student
-
+from FlightReservationSystem import *
+from MovieTicketBookingSystem import *
+from students import *
 
 class TestFunctional(unittest.TestCase):
     def setUp(self):
